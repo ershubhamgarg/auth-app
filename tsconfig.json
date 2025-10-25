@@ -1,0 +1,5 @@
+{
+  "extends": "@react-native/typescript-config",
+  "include": ["**/*.ts", "**/*.tsx", "src/components/Input/Input.styles.js"],
+  "exclude": ["**/node_modules", "**/Pods"]
+}

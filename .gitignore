@@ -1,0 +1,140 @@
+# OSX
+#
+.DS_Store
+
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+**/.xcode.env.local
+
+# testing
+/coverage/*
+!/coverage/*.svg
+test-report.xml
+# Android/IntelliJ
+#
+build/
+.idea
+.gradle
+local.properties
+*.iml
+*.hprof
+.cxx/
+*.keystore
+!debug.keystore
+.kotlin/
+
+.env
+.env.staging
+.env.production
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+*.obfuscated.*
+
+
+# fastlane
+#
+# It is recommended to not store the screenshots in the git repo. Instead, use fastlane to re-generate the
+# screenshots whenever they are needed.
+# For more information about the recommended setup visit:
+# https://docs.fastlane.tools/best-practices/source-control/
+
+**/fastlane/report.xml
+**/fastlane/Preview.html
+**/fastlane/screenshots
+**/fastlane/test_output
+
+# Bundle artifact
+*.jsbundle
+
+# CocoaPods
+**/Pods/
+
+build/
+dist/
+node_modules/
+
+#lerna
+lerna-debug.log
+.jest
+#nextjs
+.next
+dist
+build
+yarn-error.log
+.png-cache
+.jest
+.metals
+.metals
+.vscode/.react
+# don't forget this one
+!.gitignore
+
+
+#vs-code
+.history
+coverage
+.jest
+.png-cache
+.metals
+.vscode/.react/*
+
+#codepush
+/android/app/src/main/assets/appcenter-config.json
+/ios/AppCenter-Config.plist
+
+# react-native-ultimate-config
+rnuc.xcconfig
+
+
+# next.js
+/.next/
+/out/
+
+#sonar
+/.scannerwork
+reports
+
+# Temporary files created by Metro to check the health of the file watcher
+.metro-health-check*
+
+.jso
+
+vendor/
+
+# Yarn
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# Firebase
+ios/GoogleService-Info.plist
+ios/GoogleService-Info-prod.plist
+ios/GoogleService-Info-stg.plist
+android/index.android.bundle.zip
+ios/main.jsbundle.zip
+android/app/src/beta/google-services.json
+android/app/src/google-services.json
+android/app/google-services.json
