@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { styles } from "./Login.styles";
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { useEffect, useState } from "react";
 import {
   Alert,
   Image,
@@ -8,17 +8,15 @@ import {
   KeyboardAvoidingView,
   Platform,
   Pressable,
-  ScrollView,
   Text,
   View,
 } from "react-native";
-import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
-import { useEffect, useState } from "react";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { MainStackParamList } from "../../navigation/MainStack";
+import Input from "../../components/Input/Input";
 import { useAuth } from "../../context/AuthContext";
+import { MainStackParamList } from "../../navigation/MainStack";
 import { ERROR_MSG } from "./../../constants/errorConstants";
+import { styles } from "./Login.styles";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -95,6 +93,7 @@ export const Login = () => {
           placeholder="Email"
           label="Email"
           keyboardType="email-address"
+          value={email}
           containerStyle={styles.emailContainer}
           onChangeText={onEmailChange}
           error={emailError}
@@ -103,6 +102,7 @@ export const Login = () => {
           placeholder="Password"
           label="Password"
           isPassword
+          value={password}
           onChangeText={onPasswordChange}
           error={passwordError}
         />

@@ -146,6 +146,7 @@ export const Signup = () => {
           placeholder="Name"
           label="Name"
           keyboardType="default"
+          value={name}
           containerStyle={styles.input}
           onChangeText={onNameChange}
           error={nameError}
@@ -153,6 +154,7 @@ export const Signup = () => {
         <Input
           placeholder="Email"
           label="Email"
+          value={email}
           keyboardType="email-address"
           containerStyle={styles.input}
           onChangeText={onEmailChange}
@@ -162,6 +164,7 @@ export const Signup = () => {
           placeholder="Password"
           label="Password"
           isPassword
+          value={password}
           containerStyle={styles.input}
           onChangeText={onPasswordChange}
           error={passwordError}
@@ -170,6 +173,7 @@ export const Signup = () => {
           placeholder="Confirm Password"
           label="Confirm Password"
           isPassword
+          value={confirmPassword}
           containerStyle={styles.input}
           onChangeText={onConfirmPasswordChange}
           error={confirmPasswordError}
