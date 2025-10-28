@@ -18,6 +18,7 @@ import { HomeStackParamList } from "../../navigation/HomeStack";
 import { styles } from "./Signup.styles";
 import { ERROR_MSG } from "../../constants/errorConstants";
 import { ERROR } from "../../constants/styleConstants";
+import { validateEmail } from "../../utils/utils";
 export const Signup = () => {
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");
@@ -31,21 +32,38 @@ export const Signup = () => {
   const { signup, user, error, setErrors } = useAuth();
   const navigation =
     useNavigation<NativeStackNavigationProp<HomeStackParamList>>();
-
+  let allGood = true;
   const handleSignup = () => {
     if (!name.length) {
       setNameError(ERROR_MSG.NAME);
+      allGood = false;
     }
     if (!email.length) {
       setEmailError(ERROR_MSG.EMAIL);
+      allGood = false;
+    }
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email id");
+      allGood = false;
     }
     if (!password.length) {
       setPasswordError(ERROR_MSG.PASSWORD);
+      allGood = false;
     }
     if (!confirmPassword.length) {
       setConfirmPasswordError(ERROR_MSG.CONFIRM_PASSWORD);
+      allGood = false;
     }
-    if (email && password) {
+    if (
+      password.length &&
+      confirmPassword.length &&
+      password !== confirmPassword
+    ) {
+      setConfirmPasswordError(ERROR_MSG.PASSWORD_MISMATCH);
+      allGood = false;
+    }
+
+    if (allGood) {
       const payload = {
         name,
         email,
@@ -67,35 +85,39 @@ export const Signup = () => {
   }, [user, error]);
 
   const onEmailChange = (e: string) => {
+    setEmail(e);
     if (e.length) {
-      setEmail(e);
       setEmailError("");
     } else {
       setEmailError(ERROR_MSG.EMAIL);
+      allGood = false;
     }
   };
 
   const onPasswordChange = (e: string) => {
+    setPassword(e);
     if (e.length) {
-      setPassword(e);
       setPasswordError("");
+      setConfirmPasswordError("");
     } else {
       setPasswordError(ERROR_MSG.PASSWORD);
+      allGood = false;
     }
   };
 
   const onConfirmPasswordChange = (e: string) => {
+    setConfirmPassword(e);
     if (e.length) {
-      setConfirmPassword(e);
       setConfirmPasswordError("");
     } else {
       setConfirmPasswordError(ERROR_MSG.CONFIRM_PASSWORD);
+      allGood = false;
     }
   };
 
   const onNameChange = (e: string) => {
+    setName(e);
     if (e.length) {
-      setName(e);
       setNameError("");
     } else {
       setNameError(ERROR_MSG.NAME);

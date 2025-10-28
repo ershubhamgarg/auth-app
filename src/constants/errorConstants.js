@@ -3,4 +3,5 @@ export const ERROR_MSG = {
   PASSWORD: "Password is required",
   NAME: "Name is required",
   CONFIRM_PASSWORD: "Confirm password is required",
+  PASSWORD_MISMATCH: "Password and confirm password do not match",
 };
