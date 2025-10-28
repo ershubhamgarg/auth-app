@@ -1,26 +1,24 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# AuthApp
 
-# Getting Started
+## About
+This is a [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+**AuthApp** has the basic authetication flow implmented where app state has been managed using Context API and persisted using [AsyncStorage](https://www.npmjs.com/package/@react-native-async-storage/async-storage). Also, for navigation between screens, [@react-navigation/native](https://www.npmjs.com/package/@react-navigation/native) has been integrated.
 
-## Step 1: Start Metro
+As soon as the user installs the app, and signs up with some credentials including Name, Email, password and confirm password, a user is saved with its details in the async storage and now the email and password can be used to login with that same user to go to home screen when the name and email is shown with a logout button at the bottom. Once user presses Logout button, app will navigate to Login screen.
+WHen the app is un-installed, all the saved users data is removed from local storage so its a local user data only.
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## To run the app
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Once you have cloned the code, run following commands :
 
 ```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+# to install node_modules
+yarn
 ```
 
-## Step 2: Build and run your app
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Now open a new terminal window/pane from the root of AuthApp project, and use one of the following commands to build and run Android or iOS app:
 
 ### Android
 
@@ -36,7 +34,7 @@ yarn android
 
 For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+The first time you build the app, run the Ruby bundler to install CocoaPods itself:
 
 ```sh
 bundle install
@@ -47,51 +45,27 @@ Then, and every time you update your native dependencies, run:
 ```sh
 bundle exec pod install
 ```
+If everything is set up correctly, you should see Auth App running in the Android Emulator, iOS Simulator, or your connected device.
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+## How the app looks 
 
-```sh
-# Using npm
-npm run ios
+### 1. Login Screen/ Landing page
+This is the landig page as soon as user opens the app. From here user can log into the app with existing user credentials (email and password). Here both the inputs are required. Below the Login button, there is a link to navigate to signup screen if user is not already signed up.
 
-# OR using Yarn
-yarn ios
-```
+<img width="270" height="600" alt="login" src="https://github.com/user-attachments/assets/a2036fa4-b029-452d-90b9-f0c5abdb18b2" />
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### 2. Signup Screen
+This is how the signup screen looks like. This screen can be accessed from Login screen by pressing the signup CTA below login button. On this screen, the user needs to fill in all the valid details to create an account on the AuthApp. Once user fills in all the valid details and presses Signup, a new user will be created in the AsyncStorage and the app will navigate to the Home page with user's details shown.
 
-## Step 3: Modify your app
+<img width="270" height="600" alt="signup" src="https://github.com/user-attachments/assets/a3369322-1a06-4688-9a25-06e50a20cc0b" />
 
-Now that you have successfully run the app, let's make changes!
+# 3. Home screen
+The home screen is in the basic state of it showing the logged in user's name and email on the top and a logout button at the bottom to log the user out and navigate back to Login screen.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+<img width="270" height="600" alt="home" src="https://github.com/user-attachments/assets/6938c77f-9cc7-4e10-bf72-baf740f30132" />
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
 
-## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
 
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
