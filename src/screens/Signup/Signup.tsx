@@ -42,8 +42,8 @@ export const Signup = () => {
       setEmailError(ERROR_MSG.EMAIL);
       allGood = false;
     }
-    if (!validateEmail(email)) {
-      setEmailError("Please enter a valid email id");
+    if (email.length && !validateEmail(email)) {
+      setEmailError(ERROR_MSG.INVALID_EMAIL);
       allGood = false;
     }
     if (!password.length) {
@@ -133,6 +133,7 @@ export const Signup = () => {
       style={styles.container}
     >
       <KeyboardAvoidingView
+        testID="signup-container"
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View style={styles.alignCenter}>
@@ -143,6 +144,7 @@ export const Signup = () => {
           <Text style={styles.title}>Please enter your details to sign up</Text>
         </View>
         <Input
+          testID="name-input"
           placeholder="Name"
           label="Name"
           keyboardType="default"
@@ -152,6 +154,7 @@ export const Signup = () => {
           error={nameError}
         />
         <Input
+          testID="email-input"
           placeholder="Email"
           label="Email"
           value={email}
@@ -161,6 +164,7 @@ export const Signup = () => {
           error={emailError}
         />
         <Input
+          testID="password-input"
           placeholder="Password"
           label="Password"
           isPassword
@@ -170,6 +174,7 @@ export const Signup = () => {
           error={passwordError}
         />
         <Input
+          testID="confirm-password-input"
           placeholder="Confirm Password"
           label="Confirm Password"
           isPassword
@@ -180,6 +185,7 @@ export const Signup = () => {
         />
 
         <Button
+          testID="signup-button"
           containerStyle={styles.button}
           label="Sign up"
           onPress={handleSignup}

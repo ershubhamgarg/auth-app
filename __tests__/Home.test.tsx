@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react-native";
-import { Home } from "../screens/Home";
+import { Home } from "../src/screens/Home";
 
 describe("Test Home screeen", () => {
   test("matches snapshot", () => {

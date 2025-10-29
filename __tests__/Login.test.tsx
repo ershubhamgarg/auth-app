@@ -1,8 +1,8 @@
 import React from "react";
 import { render, fireEvent, waitFor } from "@testing-library/react-native";
 import { Alert } from "react-native";
-import { Login } from "../screens/Login";
-import { ERROR_MSG } from "../constants/errorConstants";
+import { Login } from "../src/screens/Login";
+import { ERROR_MSG } from "../src/constants/errorConstants";
 
 // --- Mock navigation ---
 const mockNavigate = jest.fn();
@@ -22,7 +22,7 @@ const mockSetErrors = jest.fn();
 let mockUser: any = null;
 let mockError: string | null = null;
 
-jest.mock("../context/AuthContext", () => ({
+jest.mock("../src/context/AuthContext", () => ({
   useAuth: () => ({
     login: mockLogin,
     user: mockUser,
@@ -39,6 +39,11 @@ describe("Login Screen", () => {
     jest.clearAllMocks();
     mockUser = null;
     mockError = null;
+  });
+
+  test("matches snapshot", () => {
+    const { toJSON } = render(<Login />);
+    expect(toJSON()).toMatchSnapshot();
   });
 
   test("renders input fields and button", () => {
