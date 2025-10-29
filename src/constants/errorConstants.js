@@ -6,4 +6,5 @@ export const ERROR_MSG = {
   CONFIRM_PASSWORD: "Confirm password is required",
   PASSWORD_MISMATCH: "Password and confirm password do not match",
   MIN_PASSWORD: "Please enter at least 5 characters",
+  USER_EXISTS: "User already exists. Please log in.",
 };

@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Alert } from "react-native";
+import { ERROR_MSG } from "../constants/errorConstants";
 type User = {
   name: string;
   email: string;
@@ -82,7 +83,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       const newUser = payload;
       const userExists = Boolean(userExist(users, newUser.email));
       if (userExists) {
-        setError("User already exists. Please log in.");
+        setError(ERROR_MSG.USER_EXISTS);
       } else {
         users.push(newUser);
         await AsyncStorage.setItem("users", JSON.stringify(users));
