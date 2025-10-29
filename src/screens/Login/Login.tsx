@@ -51,6 +51,7 @@ export const Login = () => {
     }
     setErrors?.();
   }, [user, error]);
+
   const onEmailChange = (e: string) => {
     if (e.length) {
       setEmail(e);
@@ -72,6 +73,7 @@ export const Login = () => {
   const gotoSignup = () => {
     navigation.navigate("Signup");
   };
+
   return (
     <ImageBackground
       source={require("../../assets/images/back.png")}
@@ -90,6 +92,7 @@ export const Login = () => {
           </Text>
         </View>
         <Input
+          testID="login-username"
           placeholder="Email"
           label="Email"
           keyboardType="email-address"
@@ -99,6 +102,7 @@ export const Login = () => {
           error={emailError}
         />
         <Input
+          testID="login-password"
           placeholder="Password"
           label="Password"
           isPassword
@@ -106,7 +110,6 @@ export const Login = () => {
           onChangeText={onPasswordChange}
           error={passwordError}
         />
-
         <Button
           containerStyle={styles.button}
           label="Log in"
