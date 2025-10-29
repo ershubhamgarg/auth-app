@@ -65,7 +65,12 @@ The home screen is in the basic state of it showing the logged in user's name an
 
 <img width="270" height="600" alt="home" src="https://github.com/user-attachments/assets/6938c77f-9cc7-4e10-bf72-baf740f30132" />
 
+## Testing the app
+
+Jest environment and test files have been set up to test the app screens. Run below command to run the tests :
 
 
-
+```sh
+yarn test
+```
 
