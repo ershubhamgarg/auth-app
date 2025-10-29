@@ -50,6 +50,10 @@ export const Signup = () => {
       setPasswordError(ERROR_MSG.PASSWORD);
       allGood = false;
     }
+    if (password.length < 5) {
+      setPasswordError(ERROR_MSG.MIN_PASSWORD);
+      allGood = false;
+    }
     if (!confirmPassword.length) {
       setConfirmPasswordError(ERROR_MSG.CONFIRM_PASSWORD);
       allGood = false;

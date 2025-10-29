@@ -1,15 +1,143 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Test Home screeen matches snapshot 1`] = `
-<RNCSafeAreaProvider
-  onInsetsChange={[Function]}
-  style={
-    [
-      {
-        "flex": 1,
-      },
-      undefined,
-    ]
+exports[`Home Screen matches snapshot 1`] = `
+<RNCSafeAreaView
+  edges={
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "additive",
+    }
   }
-/>
+  style={
+    {
+      "backgroundColor": undefined,
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "alignItems": "center",
+        "flex": 0.8,
+        "justifyContent": "center",
+      }
+    }
+    testID="card-container"
+  >
+    <View
+      style={
+        {
+          "backgroundColor": undefined,
+          "borderWidth": 1,
+          "padding": 20,
+          "shadowOffset": {
+            "height": 1,
+            "width": 1,
+          },
+          "shadowOpacity": 0.5,
+          "width": "80%",
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#132440",
+            "fontSize": 20,
+            "fontWeight": "800",
+          }
+        }
+      >
+        Name : John Doe
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#132440",
+            "fontSize": 15,
+            "fontWeight": "500",
+          }
+        }
+      >
+        E-mail : john@example.com
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      {
+        "flex": 0.2,
+        "padding": 40,
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": false,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={true}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        [
+          {
+            "alignItems": "center",
+            "backgroundColor": "#132440",
+            "borderRadius": 5,
+            "flexDirection": "row",
+            "justifyContent": "center",
+            "minHeight": 50,
+            "padding": 10,
+            "shadowOffset": {
+              "height": 1,
+              "width": 1,
+            },
+            "shadowOpacity": 0.4,
+          },
+          undefined,
+        ]
+      }
+      testID="logout-button"
+    >
+      <Text
+        style={
+          {
+            "color": "#ffffff",
+            "fontSize": 15,
+            "fontWeight": "700",
+            "marginLeft": 10,
+          }
+        }
+      >
+        Log out
+      </Text>
+    </View>
+  </View>
+</RNCSafeAreaView>
 `;

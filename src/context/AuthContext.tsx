@@ -31,6 +31,15 @@ const findUser = (db: User[], payload: LoginPaylod) => {
     return null;
   }
 };
+const userExist = (db: User[], email: string) => {
+  if (db.length) {
+    return db.filter(
+      (user) => user.email.toLowerCase() === email.toLowerCase()
+    )[0];
+  } else {
+    return null;
+  }
+};
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
@@ -71,7 +80,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
       const data = await AsyncStorage.getItem("users");
       const users = await JSON.parse(data ?? "[]");
       const newUser = payload;
-      const userExists = Boolean(findUser(users, newUser));
+      const userExists = Boolean(userExist(users, newUser.email));
       if (userExists) {
         setError("User already exists. Please log in.");
       } else {

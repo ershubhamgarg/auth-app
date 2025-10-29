@@ -32,18 +32,20 @@ export const Home = () => {
   };
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.container}>
-        <View style={styles.cardContainer}>
-          <View style={styles.card}>
-            <Text style={styles.name}>{`Name : ${user?.name}`}</Text>
-            <Text style={styles.email}>{`E-mail : ${user?.email}`}</Text>
-          </View>
+    <SafeAreaView style={styles.container}>
+      <View testID="card-container" style={styles.cardContainer}>
+        <View style={styles.card}>
+          <Text style={styles.name}>{`Name : ${user?.name}`}</Text>
+          <Text style={styles.email}>{`E-mail : ${user?.email}`}</Text>
         </View>
-        <View style={styles.buttonContainer}>
-          <Button label="Log out" onPress={() => handleLogout()} />
-        </View>
-      </SafeAreaView>
-    </SafeAreaProvider>
+      </View>
+      <View style={styles.buttonContainer}>
+        <Button
+          testID="logout-button"
+          label="Log out"
+          onPress={() => handleLogout()}
+        />
+      </View>
+    </SafeAreaView>
   );
 };

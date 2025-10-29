@@ -17,6 +17,7 @@ import { useAuth } from "../../context/AuthContext";
 import { MainStackParamList } from "../../navigation/MainStack";
 import { ERROR_MSG } from "./../../constants/errorConstants";
 import { styles } from "./Login.styles";
+import { validateEmail } from "../../utils/utils";
 export const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,15 +26,21 @@ export const Login = () => {
   const { login, user, error, setErrors } = useAuth();
   const navigation =
     useNavigation<NativeStackNavigationProp<MainStackParamList>>();
-
+  let allGood = true;
   const handleLogin = () => {
     if (!email.length) {
       setEmailError(ERROR_MSG.EMAIL);
+      allGood = false;
     }
     if (!password.length) {
       setPasswordError(ERROR_MSG.PASSWORD);
+      allGood = false;
     }
-    if (email && password) {
+    if (email.length && !validateEmail(email)) {
+      setEmailError(ERROR_MSG.INVALID_EMAIL);
+      allGood = false;
+    }
+    if (allGood) {
       const payload = {
         email,
         password,
@@ -53,20 +60,22 @@ export const Login = () => {
   }, [user, error]);
 
   const onEmailChange = (e: string) => {
+    setEmail(e);
     if (e.length) {
-      setEmail(e);
       setEmailError("");
     } else {
       setEmailError(ERROR_MSG.EMAIL);
+      allGood = false;
     }
   };
 
   const onPasswordChange = (e: string) => {
+    setPassword(e);
     if (e.length) {
-      setPassword(e);
       setPasswordError("");
     } else {
       setPasswordError(ERROR_MSG.PASSWORD);
+      allGood = false;
     }
   };
 
