@@ -80,6 +80,7 @@ export const Login = () => {
       style={styles.container}
     >
       <KeyboardAvoidingView
+        testID="login-container"
         behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
         <View style={styles.alignCenter}>
@@ -92,7 +93,7 @@ export const Login = () => {
           </Text>
         </View>
         <Input
-          testID="login-username"
+          testID="email-input"
           placeholder="Email"
           label="Email"
           keyboardType="email-address"
@@ -102,7 +103,7 @@ export const Login = () => {
           error={emailError}
         />
         <Input
-          testID="login-password"
+          testID="password-input"
           placeholder="Password"
           label="Password"
           isPassword
@@ -111,6 +112,7 @@ export const Login = () => {
           error={passwordError}
         />
         <Button
+          testID={"login-button"}
           containerStyle={styles.button}
           label="Log in"
           onPress={handleLogin}

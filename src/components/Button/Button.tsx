@@ -1,8 +1,8 @@
-import React from 'react';
-import { Pressable, View, Text, ActivityIndicator } from 'react-native';
-import { ButtonProps } from './Button.types';
-import styles from './Button.styles';
-import { BG_COLOR } from '../../constants/styleConstants';
+import React from "react";
+import { Pressable, Text, ActivityIndicator } from "react-native";
+import { ButtonProps } from "./Button.types";
+import styles from "./Button.styles";
+import { WHITE } from "../../constants/styleConstants";
 
 const Button = ({
   label,
@@ -11,14 +11,16 @@ const Button = ({
   labelStyle,
   containerStyle,
   loading,
+  ...props
 }: ButtonProps) => {
   return (
     <Pressable
       style={[styles.buttonContainer, containerStyle]}
       disabled={disabled}
       onPress={onPress}
+      {...props}
     >
-      {loading && <ActivityIndicator color={BG_COLOR} />}
+      {loading && <ActivityIndicator color={WHITE} />}
 
       <Text style={{ ...styles.label, ...labelStyle }}>{label}</Text>
     </Pressable>
