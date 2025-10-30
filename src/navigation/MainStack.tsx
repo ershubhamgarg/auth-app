@@ -1,23 +1,24 @@
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Signup } from "../screens/Signup/Signup";
-import { Home } from "../screens/Home/Home";
-import { Login } from "../screens/Login/Login";
-import { HomeStack } from "./HomeStack";
+import React, { useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
-import { useEffect } from "react";
 import { AuthStack } from "./AuthStack";
+import { HomeStack } from "./HomeStack";
+
 export type MainStackParamList = {
   Login: undefined;
   Signup: undefined;
   Home: undefined;
 };
-export const MainStack = () => {
+
+const MainStackComponent: React.FC = () => {
   const { user, checkLogin } = useAuth();
 
   useEffect(() => {
-    checkLogin?.();
-  }, []);
+    // guard in case checkLogin is undefined
+    if (typeof checkLogin === "function") {
+      checkLogin();
+    }
+  }, [checkLogin]);
 
   return (
     <NavigationContainer>
@@ -25,3 +26,5 @@ export const MainStack = () => {
     </NavigationContainer>
   );
 };
+
+export const MainStack = React.memo(MainStackComponent);

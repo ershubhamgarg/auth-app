@@ -1,11 +1,11 @@
-import { Alert, StatusBar, Text, useColorScheme, View } from "react-native";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import Button from "../../components/Button/Button";
 import { CommonActions, useNavigation } from "@react-navigation/native";
-import { MainStackParamList } from "../../navigation/MainStack";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
-import { styles } from "./Home.styles";
+import { Alert, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import Button from "../../components/Button/Button";
 import { useAuth } from "../../context/AuthContext";
+import { MainStackParamList } from "../../navigation/MainStack";
+import { styles } from "./Home.styles";
 export const Home = () => {
   const { user, logout } = useAuth();
   const navigation =

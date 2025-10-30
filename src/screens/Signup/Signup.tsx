@@ -13,12 +13,11 @@ import {
 } from "react-native";
 import Button from "../../components/Button/Button";
 import Input from "../../components/Input/Input";
+import { ERROR_MSG } from "../../constants/errorConstants";
 import { useAuth } from "../../context/AuthContext";
 import { HomeStackParamList } from "../../navigation/HomeStack";
-import { styles } from "./Signup.styles";
-import { ERROR_MSG } from "../../constants/errorConstants";
-import { ERROR } from "../../constants/styleConstants";
 import { validateEmail } from "../../utils/utils";
+import { styles } from "./Signup.styles";
 export const Signup = () => {
   const [name, setName] = useState("");
   const [nameError, setNameError] = useState("");

@@ -1,9 +1,5 @@
 import { StyleSheet } from "react-native";
-import {
-  BG_COLOR,
-  LIGHT_BLUE,
-  SECONDARY_BLUE,
-} from "../../constants/styleConstants";
+import { LIGHT_BLUE, SECONDARY_BLUE } from "../../constants/styleConstants";
 
 export const styles = StyleSheet.create({
   container: {

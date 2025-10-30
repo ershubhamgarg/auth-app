@@ -1,4 +1,4 @@
-import { LogBox, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { AuthProvider } from "./src/context/AuthContext";
 import { MainStack } from "./src/navigation/MainStack";
