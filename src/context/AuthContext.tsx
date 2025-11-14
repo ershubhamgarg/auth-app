@@ -13,10 +13,10 @@ export type User = {
   password: string;
 };
 
-export type LoginPaylod = { email: string; password: string };
+export type LoginPayload = { email: string; password: string };
 interface AuthContextType {
   user: User | null;
-  login: (payload: LoginPaylod) => void;
+  login: (payload: LoginPayload) => void;
   signup: (payload: User) => void;
   logout: () => void;
   error?: string;
@@ -42,7 +42,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string>("");
 
-  const login = async (payload: LoginPaylod) => {
+  const login = async (payload: LoginPayload) => {
     //logic to find user data from saved users
     try {
       const data = await getItemFromStorage("users");

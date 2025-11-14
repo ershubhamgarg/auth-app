@@ -1,6 +1,6 @@
-import { LoginPaylod, User } from "../context/AuthContext";
+import { LoginPayload, User } from "../context/AuthContext";
 
-export const findUser = (db: User[], payload: LoginPaylod) => {
+export const findUser = (db: User[], payload: LoginPayload) => {
   if (db.length) {
     return db.filter(
       (user) =>
@@ -11,6 +11,7 @@ export const findUser = (db: User[], payload: LoginPaylod) => {
     return null;
   }
 };
+
 export const userExist = (db: User[], email: string) => {
   if (db.length) {
     return db.filter(
